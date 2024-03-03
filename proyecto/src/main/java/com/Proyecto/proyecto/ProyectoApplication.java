@@ -8,6 +8,8 @@ import com.Proyecto.proyecto.inventario.Inventario;
 import com.Proyecto.proyecto.inventario.InventarioService;
 import com.Proyecto.proyecto.mantenimiento.Mantenimiento;
 import com.Proyecto.proyecto.mantenimiento.MantenimientoService;
+import com.Proyecto.proyecto.producto.Producto;
+import com.Proyecto.proyecto.producto.ProductoService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -27,12 +29,14 @@ public class ProyectoApplication {
 		MantenimientoService mantenimientoService = contexto.getBean(MantenimientoService.class);
 		InventarioService inventarioService = contexto.getBean(InventarioService.class);
 		ClienteService clienteService = contexto.getBean(ClienteService.class);
+		ProductoService productoService = contexto.getBean(ProductoService.class);
 
 // 		Creacion de Objetos
 		Bicicleta bicicleta = new Bicicleta();
 		Mantenimiento mantenimiento = new Mantenimiento();
 		Inventario inventario = new Inventario();
 		Cliente cliente = new Cliente();
+		Producto producto = new Producto();
 
 
 
@@ -40,8 +44,8 @@ public class ProyectoApplication {
 //// ----- CREACION DE OBJETOS ------
 
 ////	Crear Bicicleta
-//		bicicleta.setMarca("Chimba de cicla");
-//		bicicleta.setNumeroDelMarco("003A");
+//		bicicleta.setMarca("pro de cicla");
+//		bicicleta.setNumeroDelMarco("005A");
 
 
 ////	Crear Mantenimiento
@@ -58,6 +62,12 @@ public class ProyectoApplication {
 //		cliente.setNombre("daniel");
 //		cliente.setCiudad("Bogota");
 //		cliente.setEmail("daniel@gmail.com");
+
+////    Crear Objeto Producto
+
+		producto.setNombre("Pedales");
+		producto.setPrecio(10000.00);
+
 
 
 ////-------	CRUD Bicicleta  ---------
@@ -124,22 +134,44 @@ public class ProyectoApplication {
 
 ////-------	CRUD Cliente ----------
 
-////		Guardar Cliente
+////	Guardar Cliente
 //		clienteService.saveCliente(cliente);
 
-////		Eliminar Cliente
+////	Eliminar Cliente
 //		clienteService.deleteCliente(1L);
 
-////		Actualizar Cliente
+////	Actualizar Cliente
 //		clienteService.updateCliente(2L, cliente);
 
 //		Consultar Cliente por Id
 //		System.out.println(clienteService.getClienteById(2L));
 
-////		Consultar todos los Clientes
+////	Consultar todos los Clientes
 //		List<Cliente> clienteObj = clienteService.getAllClientes();
 //		for (Cliente clienteList : clienteObj) {
 //			System.out.println(clienteList);
+//		}
+
+
+
+//////-------	CRUD Producto ----------
+//
+////	Guardar Producto
+//		productoService.saveProducto(producto);
+//
+////	Eliminar Producto
+//		productoService.deleteProducto(1L);
+//
+////	Actualizar Producto
+//		productoService.updateProducto(2L, producto);
+//
+////	Consultar Producto por Id
+//		System.out.println(productoService.getProductoById(2L));
+//
+////	Consultar todos los Producto
+//		List<Producto> productoObj = productoService.getAllProducto();
+//		for (Producto productoList : productoObj) {
+//			System.out.println(productoList);
 //		}
 
 	}
