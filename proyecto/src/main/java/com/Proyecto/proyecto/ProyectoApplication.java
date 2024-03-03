@@ -2,6 +2,8 @@ package com.Proyecto.proyecto;
 
 import com.Proyecto.proyecto.bicicleta.Bicicleta;
 import com.Proyecto.proyecto.bicicleta.BicicletaService;
+import com.Proyecto.proyecto.categoria.Categoria;
+import com.Proyecto.proyecto.categoria.CategoriaService;
 import com.Proyecto.proyecto.cliente.Cliente;
 import com.Proyecto.proyecto.cliente.ClienteService;
 import com.Proyecto.proyecto.inventario.Inventario;
@@ -30,6 +32,7 @@ public class ProyectoApplication {
 		InventarioService inventarioService = contexto.getBean(InventarioService.class);
 		ClienteService clienteService = contexto.getBean(ClienteService.class);
 		ProductoService productoService = contexto.getBean(ProductoService.class);
+		CategoriaService categoriaService = contexto.getBean(CategoriaService.class);
 
 // 		Creacion de Objetos
 		Bicicleta bicicleta = new Bicicleta();
@@ -37,8 +40,7 @@ public class ProyectoApplication {
 		Inventario inventario = new Inventario();
 		Cliente cliente = new Cliente();
 		Producto producto = new Producto();
-
-
+		Categoria categoria = new Categoria();
 
 
 //// ----- CREACION DE OBJETOS ------
@@ -57,17 +59,17 @@ public class ProyectoApplication {
 //		inventario.setDireccion("Calle 122 # 342 - 01");
 //		inventario.setSucursal("Pasto");
 
-////		Crear Objeto Cliente
-//
+////	Crear Objeto Cliente
 //		cliente.setNombre("daniel");
 //		cliente.setCiudad("Bogota");
 //		cliente.setEmail("daniel@gmail.com");
 
 ////    Crear Objeto Producto
+//		producto.setNombre("Pedales");
+//		producto.setPrecio(10000.00);
 
-		producto.setNombre("Pedales");
-		producto.setPrecio(10000.00);
-
+////	Crear Objeto Producto
+//		categoria.setNombre("Ruta");
 
 
 ////-------	CRUD Bicicleta  ---------
@@ -158,20 +160,41 @@ public class ProyectoApplication {
 //
 ////	Guardar Producto
 //		productoService.saveProducto(producto);
-//
+
 ////	Eliminar Producto
 //		productoService.deleteProducto(1L);
-//
+
 ////	Actualizar Producto
 //		productoService.updateProducto(2L, producto);
-//
+
 ////	Consultar Producto por Id
 //		System.out.println(productoService.getProductoById(2L));
-//
+
 ////	Consultar todos los Producto
 //		List<Producto> productoObj = productoService.getAllProducto();
 //		for (Producto productoList : productoObj) {
 //			System.out.println(productoList);
+//		}
+
+
+//////-------	CRUD Producto ----------
+//
+////	Guardar categoria
+//		categoriaService.saveCategoria(categoria);
+
+////	Eliminar Producto
+//		categoriaService.deleteCategoria(1L);
+
+////	Actualizar Categoria
+//		categoriaService.updateCategoria(2L, categoria);
+
+////	Consultar Categoria por Id
+//		System.out.println(categoriaService.getCategoriaById(2L));
+
+////	Consultar todos los Categoria
+//		List<Categoria> categoriaObj = categoriaService.getAllCategoria();
+//		for (Categoria categoriaList : categoriaObj) {
+//			System.out.println(categoriaList);
 //		}
 
 	}
