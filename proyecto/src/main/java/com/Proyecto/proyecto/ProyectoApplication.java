@@ -2,6 +2,8 @@ package com.Proyecto.proyecto;
 
 import com.Proyecto.proyecto.bicicleta.Bicicleta;
 import com.Proyecto.proyecto.bicicleta.BicicletaService;
+import com.Proyecto.proyecto.cliente.Cliente;
+import com.Proyecto.proyecto.cliente.ClienteService;
 import com.Proyecto.proyecto.inventario.Inventario;
 import com.Proyecto.proyecto.inventario.InventarioService;
 import com.Proyecto.proyecto.mantenimiento.Mantenimiento;
@@ -24,12 +26,15 @@ public class ProyectoApplication {
 		BicicletaService bicicletaService = contexto.getBean(BicicletaService.class);
 		MantenimientoService mantenimientoService = contexto.getBean(MantenimientoService.class);
 		InventarioService inventarioService = contexto.getBean(InventarioService.class);
-
+		ClienteService clienteService = contexto.getBean(ClienteService.class);
 
 // 		Creacion de Objetos
 		Bicicleta bicicleta = new Bicicleta();
 		Mantenimiento mantenimiento = new Mantenimiento();
 		Inventario inventario = new Inventario();
+		Cliente cliente = new Cliente();
+
+
 
 
 //// ----- CREACION DE OBJETOS ------
@@ -48,6 +53,11 @@ public class ProyectoApplication {
 //		inventario.setDireccion("Calle 122 # 342 - 01");
 //		inventario.setSucursal("Pasto");
 
+////		Crear Objeto Cliente
+//
+//		cliente.setNombre("daniel");
+//		cliente.setCiudad("Bogota");
+//		cliente.setEmail("daniel@gmail.com");
 
 
 ////-------	CRUD Bicicleta  ---------
@@ -110,6 +120,26 @@ public class ProyectoApplication {
 //		List<Inventario> inventariosObj = inventarioService.getAllInventarios();
 //		for (Inventario inventarioList : inventariosObj) {
 //			System.out.println(inventarioList);
+//		}
+
+////-------	CRUD Cliente ----------
+
+////		Guardar Cliente
+//		clienteService.saveCliente(cliente);
+
+////		Eliminar Cliente
+//		clienteService.deleteCliente(1L);
+
+////		Actualizar Cliente
+//		clienteService.updateCliente(2L, cliente);
+
+//		Consultar Cliente por Id
+//		System.out.println(clienteService.getClienteById(2L));
+
+////		Consultar todos los Clientes
+//		List<Cliente> clienteObj = clienteService.getAllClientes();
+//		for (Cliente clienteList : clienteObj) {
+//			System.out.println(clienteList);
 //		}
 
 	}

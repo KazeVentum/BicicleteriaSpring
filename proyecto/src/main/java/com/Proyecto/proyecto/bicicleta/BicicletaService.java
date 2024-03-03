@@ -48,7 +48,7 @@ public class BicicletaService {
     public Bicicleta getBicicletaById(Long id){
         Optional<Bicicleta> optionalBicicleta =  bicicletaRepository.findById(id);
         if (optionalBicicleta.isPresent()){
-            return optionalBicicleta.get();
+            return  optionalBicicleta.get();
         }
         else {
             throw new Error("Paila nea, No existe ninguna bicicleta con ese Id");
