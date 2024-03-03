@@ -22,7 +22,7 @@ public class MantenimientoService {
         mantenimientoRepository.save(mantenimiento);
     }
 
-    public void deleteMantenimiento(long id){
+    public void deleteMantenimiento(Long id){
         Optional<Mantenimiento> optionalMantenimiento =  mantenimientoRepository.findById(id);
         if (optionalMantenimiento.isPresent()){
             mantenimientoRepository.deleteById(id);

@@ -2,6 +2,8 @@ package com.Proyecto.proyecto;
 
 import com.Proyecto.proyecto.bicicleta.Bicicleta;
 import com.Proyecto.proyecto.bicicleta.BicicletaService;
+import com.Proyecto.proyecto.inventario.Inventario;
+import com.Proyecto.proyecto.inventario.InventarioService;
 import com.Proyecto.proyecto.mantenimiento.Mantenimiento;
 import com.Proyecto.proyecto.mantenimiento.MantenimientoService;
 import org.springframework.boot.SpringApplication;
@@ -9,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootApplication
 public class ProyectoApplication {
@@ -20,15 +23,20 @@ public class ProyectoApplication {
 //		Creacion de servicios!
 		BicicletaService bicicletaService = contexto.getBean(BicicletaService.class);
 		MantenimientoService mantenimientoService = contexto.getBean(MantenimientoService.class);
+		InventarioService inventarioService = contexto.getBean(InventarioService.class);
+
 
 // 		Creacion de Objetos
 		Bicicleta bicicleta = new Bicicleta();
 		Mantenimiento mantenimiento = new Mantenimiento();
+		Inventario inventario = new Inventario();
 
+
+//// ----- CREACION DE OBJETOS ------
 
 ////	Crear Bicicleta
-//		bicicleta.setMarca("ASUS-RogStrick");
-//		bicicleta.setNumeroDelMarco("002B");
+//		bicicleta.setMarca("Chimba de cicla");
+//		bicicleta.setNumeroDelMarco("003A");
 
 
 ////	Crear Mantenimiento
@@ -36,8 +44,13 @@ public class ProyectoApplication {
 //		mantenimiento.setBicicleta(bicicletaService.getBicicletaById(3L));
 //		mantenimiento.setPrecio(2500.0);
 
+////	Crear Objeto Inventario
+//		inventario.setDireccion("Calle 122 # 342 - 01");
+//		inventario.setSucursal("Pasto");
 
-////	CRUD Bicicleta
+
+
+////-------	CRUD Bicicleta  ---------
 
 ////	Guardar Bicicleta
 //		bicicletaService.saveBicicleta(bicicleta);
@@ -58,7 +71,7 @@ public class ProyectoApplication {
 //		}
 
 
-////	CRUD Mantenimiento
+////-------	CRUD Mantenimiento ----------
 
 ////	Guardar Mantenimiento
 //		mantenimientoService.saveMantenimiento(mantenimiento);
@@ -79,7 +92,25 @@ public class ProyectoApplication {
 //		}
 
 
+////-------	CRUD Inventario ----------
+
+////	Guardar Inventario
+//		inventarioService.saveInventario(inventario);
+
+////	Eliminar Inventario
+//		inventarioService.deleteInventario(3L);
+
+//// 	Actualizar Inventario
+//		inventarioService.updateInventario(1L, inventario);
+
+////	Consultar Inventario por Id
+//		System.out.println(inventarioService.getInventarioById(2L));
+
+////	Consultar Todos los Mantenimientos
+//		List<Inventario> inventariosObj = inventarioService.getAllInventarios();
+//		for (Inventario inventarioList : inventariosObj) {
+//			System.out.println(inventarioList);
+//		}
+
 	}
-
-
 }
