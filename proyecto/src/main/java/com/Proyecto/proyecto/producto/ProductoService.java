@@ -51,7 +51,7 @@ public class ProductoService {
             return optionalProducto.get();
         }
         else {
-            throw new Error("Paila nea, No hay ningun mantenimiento");
+            throw new Error("Paila nea, No hay ningun Producto");
         }
     }
 }
