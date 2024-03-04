@@ -1,6 +1,9 @@
 package com.Proyecto.proyecto.producto;
 
+import com.Proyecto.proyecto.categoria.Categoria;
 import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
 public class Producto {
@@ -13,6 +16,9 @@ public class Producto {
 
     @Column(name="precio", nullable = false)
     private double precio;
+
+    @ManyToMany(mappedBy = "productos", fetch = FetchType.EAGER) // Mapped hace referencia a quien va a Mapear
+    private Set<Categoria> categorias;
 
     public Producto() {
     }
@@ -39,6 +45,14 @@ public class Producto {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public Set<Categoria> getCategorias() {
+        return categorias;
+    }
+
+    public void setCategorias(Set<Categoria> categorias) {
+        this.categorias = categorias;
     }
 
     @Override

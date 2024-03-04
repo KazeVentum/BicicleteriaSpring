@@ -1,6 +1,8 @@
 package com.Proyecto.proyecto.cliente;
 
+import com.Proyecto.proyecto.factura.Factura;
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 public class Cliente {
@@ -17,6 +19,9 @@ public class Cliente {
 
     @Column(name = "email", unique = true, nullable = false)
     private String email;
+
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Factura> facturas;
 
     public Cliente() {
     }

@@ -1,5 +1,9 @@
 package com.Proyecto.proyecto.producto;
 
+import com.Proyecto.proyecto.categoria.Categoria;
+import com.Proyecto.proyecto.categoria.CategoriaRepository;
+import com.Proyecto.proyecto.categoria.CategoriaService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +14,12 @@ import java.util.Optional;
 public class ProductoService {
 
     private final ProductoRepository productoRepository;
+    private final CategoriaRepository categoriaRepository;
 
     @Autowired
-    public  ProductoService(ProductoRepository productoRepository){
+    public  ProductoService(ProductoRepository productoRepository, CategoriaRepository categoriaRepository){
         this.productoRepository = productoRepository;
+        this.categoriaRepository = categoriaRepository;
     }
 
     public void saveProducto(Producto producto){
@@ -52,6 +58,18 @@ public class ProductoService {
         }
         else {
             throw new Error("Paila nea, No hay ningun Producto");
+        }
+    }
+
+    @Transactional                                                                           // Cuando hay dos consultas presentes en un mismo metodo, se usa "Transational"
+    public void insertCategoria(Long categoriaId, Long productoId){
+
+        Categoria categoria = categoriaRepository.findById(categoriaId).orElse(null);
+        Producto producto = productoRepository.findById(productoId).orElse(null);
+
+        if (categoria != null && producto != null){
+           categoria.getProductos().add(producto);
+           producto.getCategorias().add(categoria);
         }
     }
 }

@@ -22,15 +22,6 @@ public class MantenimientoService {
         mantenimientoRepository.save(mantenimiento);
     }
 
-    public void deleteMantenimiento(Long id){
-        Optional<Mantenimiento> optionalMantenimiento =  mantenimientoRepository.findById(id);
-        if (optionalMantenimiento.isPresent()){
-            mantenimientoRepository.deleteById(id);
-        }
-        else {
-            throw new Error("Paila rey, no hay registros de mantenimientos con ese ID para eliminar :( ");
-        }
-    }
 
     public void updateMantenimiento(Long id, Mantenimiento nuevoMantenimiento){
         Mantenimiento mantenimientoInsertar = mantenimientoRepository.findById(id).orElse(null);

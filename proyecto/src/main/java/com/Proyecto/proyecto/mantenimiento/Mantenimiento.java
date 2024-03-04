@@ -1,6 +1,8 @@
 package com.Proyecto.proyecto.mantenimiento;
 import com.Proyecto.proyecto.bicicleta.Bicicleta;
+import com.Proyecto.proyecto.factura.Factura;
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 public class Mantenimiento {
@@ -11,12 +13,16 @@ public class Mantenimiento {
     @Column(name="tipo_mantenimiento", nullable = false)
     private String tipoMantenimiento;
 
-    @JoinColumn(name = "bicicleta_id", unique = true, nullable = false)
+    @JoinColumn(name = "bicicleta_id", nullable = false)
     @OneToOne(fetch = FetchType.EAGER)
     private Bicicleta bicicleta;
 
     @Column(name="precio", nullable = false)
     private double precio;
+
+    @OneToMany(mappedBy = "mantenimiento", cascade = CascadeType.ALL)
+    private List<Factura> facturas;
+
 
     public Mantenimiento() {
     }

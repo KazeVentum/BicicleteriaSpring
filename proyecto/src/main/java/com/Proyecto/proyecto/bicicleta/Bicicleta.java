@@ -14,7 +14,7 @@ public class Bicicleta {
     @Column(name = "marca", nullable = false)
     private String marca;
 
-    @OneToOne(mappedBy ="bicicleta" )
+    @OneToOne(mappedBy ="bicicleta", cascade = CascadeType.ALL) // A cualquier MappedBy se debe colocar el Cascade para que se pueda eliminar.
     private Mantenimiento mantenimiento;
 
     public Bicicleta() {
