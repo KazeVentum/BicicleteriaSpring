@@ -1,6 +1,7 @@
 package com.Proyecto.proyecto.categoria;
 
 
+import com.Proyecto.proyecto.producto.Producto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,6 +55,9 @@ public class CategoriaService {
         else {
             throw new Error ("Paila nea, No hay ninguna Categoria con ese ID registrado");
         }
+    }
+    public List<Producto> getProductosPorCategoria(Categoria categoria) {
+        return categoriaRepository.findProductosByCategoria(categoria);
     }
 
 }

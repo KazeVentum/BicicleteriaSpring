@@ -7,6 +7,7 @@ import com.Proyecto.proyecto.categoria.CategoriaService;
 import com.Proyecto.proyecto.cliente.Cliente;
 import com.Proyecto.proyecto.cliente.ClienteService;
 import com.Proyecto.proyecto.factura.Factura;
+import com.Proyecto.proyecto.factura.FacturaRepository;
 import com.Proyecto.proyecto.factura.FacturaService;
 import com.Proyecto.proyecto.inventario.Inventario;
 import com.Proyecto.proyecto.inventario.InventarioService;
@@ -239,10 +240,30 @@ public class ProyectoApplication {
 //		productoXFacturaService.saveProductoXFactura(productoService.getProductoById(1L), facturaService.getFacturaById(3L), 2);
 
 ////// -------	CRUD CategoriaXProducto ----------
-//		productoService.insertCategoria(1L, 1L);
+//		productoService.insertCategoria(1L, 2L);
 
 ////// -------	CRUD inventarioXProducto ----------
 //		inventarioXProductoService.saveInventarioXProducto(inventarioService.getInventarioById(2L), productoService.getProductoById(2L), 5);
+
+
+//		JPQL QUERY 1
+//		List<Factura> facturas = facturaService.findFacturasByBicicletaId(3L);
+//		for (Factura facturaList : facturas) {
+//			System.out.println("ID de factura: " + facturaList.getId() + ", Pertenece a cliente: " + facturaList.getCliente().getNombre());
+//		}
+
+//		JPQL QUERY 2
+
+
+//		Categoria categoriaConsultar = categoriaService.getCategoriaById(1L);
+//
+//		List<Producto> productos = categoriaService.getProductosPorCategoria(categoriaConsultar);
+//
+//		System.out.println("Estos son los productos asignados a la categoria: " + categoriaConsultar.getNombre());
+//		// Imprimir los productos
+//		for (Producto productoList : productos) {
+//			System.out.println(productoList);
+//		}
 
 	}
 }

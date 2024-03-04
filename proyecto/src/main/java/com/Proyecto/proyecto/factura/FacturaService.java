@@ -59,5 +59,11 @@ public class FacturaService {
         }
     }
 
+    public List<Factura> findFacturasByBicicletaId(Long bicicletaId) {
+        return facturaRepository.findFacturasByBicicletaId(bicicletaId);
+    }
+
+
+
 
 }
